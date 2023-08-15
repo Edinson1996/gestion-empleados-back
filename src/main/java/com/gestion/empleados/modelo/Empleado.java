@@ -1,12 +1,14 @@
 package com.gestion.empleados.modelo;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="empleados")
 public class Empleado {
-
+    @JsonIgnore
+    private HibernateProxy hibernateLazyInitializer;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
