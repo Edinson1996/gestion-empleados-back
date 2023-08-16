@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/")
 @CrossOrigin(origins = "http://localhost:4200")
+
 public class EmpleadoControlador {
 
     @Autowired
@@ -25,7 +26,7 @@ public class EmpleadoControlador {
 
     @PostMapping("/empleados")
     //@ResquestBody es para enviar ese objeto en formato json
-    public Empleado guardarEmpleado(Empleado empleado) {
+    public Empleado guardarEmpleado(@RequestBody Empleado empleado) {
         return this.empleadoService.newEmpleado(empleado);
     }
 
